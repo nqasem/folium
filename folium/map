@@ -1,0 +1,14 @@
+Copy code
+import folium
+
+# إنشاء خريطة جديدة
+map_yemen = folium.Map(location=[15.3695, 44.1910], zoom_start=7)
+
+# إضافة مسار الطريق الرئيسي بين محافظة مأرب ومحافظة صنعاء
+marib_coordinates = [15.4700, 45.3221]
+sanaa_coordinates = [15.3695, 44.1910]
+route = [marib_coordinates, sanaa_coordinates]
+folium.PolyLine(locations=route, color='blue', weight=5, opacity=0.7).add_to(map_yemen)
+
+# حفظ الخريطة كملف HTML
+map_yemen.save("marib_to_sanaa_route.html")
